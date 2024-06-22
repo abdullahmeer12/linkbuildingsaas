@@ -743,7 +743,7 @@ const BloggerOutreach = () => {
       </div>
       {/* faq end */}
 
-    <section className="simple-text-sec">
+    <section className="simple-text-sec pb-80">
         <div className="container">
             <div className="row">
                 <div className="col-md-10 cnterCol">

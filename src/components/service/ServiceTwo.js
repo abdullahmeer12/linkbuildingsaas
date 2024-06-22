@@ -17,7 +17,7 @@ const ServiceTwo = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row row-gap-4">
                         <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
                             <div className="service-two__single mb-30 bg-1">
                                 <div className="icon-box">
