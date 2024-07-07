@@ -20,7 +20,7 @@ import QuoteFormTwo from "@/components/quote-form/QuoteFormTwo";
 export default function Home() {
 	return (
 		<>
-			<SEO pageTitle={"Home One"} />
+			<SEO pageTitle={"Home"} />
 			<HeaderOne />
       		<HeroOne />
 			{/* <AboutOne /> */}

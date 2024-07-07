@@ -2307,6 +2307,10 @@ input[type=search]::-webkit-search-results-decoration {
     width: 130px;
   }
 }
+
+.footer-widget__about-logo img {
+  width: 250px;
+}
 @media (max-width: 575px) {
   .header-1 .header__main-content-wrapper .header__main-left .header__logo {
     display: grid;
@@ -6481,7 +6485,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 @media (max-width: 767px) {
   .about-one .about-one__right .about-one__right-content p {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }
 .about-one .about-one__right .counter-two__single {
