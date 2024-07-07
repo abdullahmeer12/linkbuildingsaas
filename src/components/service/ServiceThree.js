@@ -10,7 +10,7 @@ const ServiceThree = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-12 text-center mb-50 wow fadeInUp" data-wow-delay=".3s">
-                            <h2 className="section-title__two-title">What Makes Us <br/> The Best <mark style={{backgroundColor:"#ffc200"}}> Link Building Agency?</mark></h2>
+                            <h2 className="section-title__two-title">What Makes Us <br/> The Best Link Building Agency?</h2>
                             <p className='heading-p'>We specialize in link building and our experience and qualified team enable us to help businesses attract backlinks which was not possible with traditional SEO practices.</p>
                         </div>
                     </div>

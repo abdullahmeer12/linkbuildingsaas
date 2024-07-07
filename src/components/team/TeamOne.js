@@ -16,11 +16,11 @@ const TeamOne = () => {
                                 <div className="team-one__single-img">
                                     <img src={item.image} alt={item.alt} />
                                     <div className="overlay-content">
-                                        <div className="social-link">
+                                        {/* <div className="social-link">
                                             <a href={item.twitter}><i className="fa-brands fa-twitter"></i></a>
                                             <a href={item.facebook}><i className="fa-brands fa-facebook-f"></i></a>
                                             <a href={item.linkedin}><i className="fa-brands fa-linkedin-in"></i></a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className="title-box">

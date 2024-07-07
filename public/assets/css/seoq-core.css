@@ -2311,7 +2311,7 @@ input[type=search]::-webkit-search-results-decoration {
   .header-1 .header__main-content-wrapper .header__main-left .header__logo {
     display: grid;
     place-items: center;
-    width: 130px;
+    width: 180px;
   }
 }
 @media only screen and (min-width: 1441px) and (max-width: 1599px) {

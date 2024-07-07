@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavMenu from './NavMenu';
 import Sidebar from './sidebar';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const HeaderOne = () => {
     const [isActive, setIsActive] = useState(false);
@@ -21,7 +22,7 @@ const HeaderOne = () => {
                                 <div className="header__main-content-wrapper header-padding d-flex align-items-center justify-content-between p-relative">
                                     <div className="header__main-left">
                                         <div className="header__logo">
-                                            <Link href="/" className="logo-dark"><img src="/assets/img/logo/logo.png" alt="logo-img" /></Link>
+                                            <Link href="/" className="logo-dark"><Image width={200} height={30} src="/assets/logo-new.png" alt="logo-img" /></Link>
                                         </div>
                                     </div>
                                     <div className="main-menu d-none d-xl-block">

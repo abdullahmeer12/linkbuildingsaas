@@ -68,7 +68,7 @@ const FaqThree = () => {
                                         <Accordion.Body>
                                             <div className="accrodion-content">
                                                 <div className="text">
-                                                    <p className='color-white'>Our link building agency helps you build a link profile that will propel your business above your competitors in search rankings. By using white hat techniques, we help you secure <mark style={{backgroundColor:"#ffc200"}}>high quality backlinks</mark> that can accelerate your rise to the top of search results.</p>
+                                                    <p className='color-white'>Our link building agency helps you build a link profile that will propel your business above your competitors in search rankings. By using white hat techniques, we help you secure high quality backlinks that can accelerate your rise to the top of search results.</p>
                                                 </div>
                                             </div>
                                         </Accordion.Body>

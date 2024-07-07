@@ -24,7 +24,7 @@ const ServiceTwo = () => {
                                     <img src="/assets/img/services/link-building.png" alt="icon" />
                                 </div>
                                 <h3 className="service-two__single-title">Consistent Link Building</h3>
-                                <p>Create a continuous stream of <mark style={{backgroundColor:"#ffc200"}}>high quality backlinks</mark> to not only advance in search rankings and retain the top spot once you get there.</p>
+                                <p>Create a continuous stream of high quality backlinks to not only advance in search rankings and retain the top spot once you get there.</p>
                                 {/* <Link href="/service-details">Learn More <i className="fa-solid fa-arrow-right"></i></Link> */}
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const ServiceTwo = () => {
                                     <img src="/assets/img/services/backlink.png" alt="icon" />
                                 </div>
                                 <h3 className="service-two__single-title">Collect High Value Backlinks</h3>
-                                <p>Cement your authority as a credible source and industry leader by getting <mark style={{backgroundColor:"#ffc200"}}>high quality backlinks</mark> from our link building service.</p>
+                                <p>Cement your authority as a credible source and industry leader by getting high quality backlinks from our link building service.</p>
                                 {/* <Link href="/service-details">Learn More <i className="fa-solid fa-arrow-right"></i></Link> */}
                             </div>
                         </div>
