@@ -23,7 +23,7 @@ export default function Home() {
 	
 	return (
 		<>
-			<SEO pageTitle={"Home"} />
+			<SEO pageTitle={"Home One"} />
 			<HeaderOne />
       		<HeroOne />
 			{/* <AboutOne /> */}

@@ -29,14 +29,13 @@ const FooterOne = () => {
                                     <div className="footer__widget footer-col-1 mb-30">
                                         <div className="footer-widget__column footer-widget__about">
                                             <div className="footer-widget__about-logo">
-                                                <Link href="/"><img src="/assets/logo-new.png" alt="Logo" /></Link>
+                                                <Link href="/"><img src="/assets/img/logo/logo.png" alt="Logo" /></Link>
                                             </div>
                                             <p className="footer-widget__about-text">As a full-service partner, we offer complete transparency and accountability to our agency clients. Rather than attempting to be a jack-of-all-trades, we focus exclusively on link building, allowing us to excel in this area.</p>
                                             <div className="social-hvr">
                                                 <a href="#"><i className="fa-brands fa-twitter"></i></a>
-                                                <a href="https://www.facebook.com/Linkbuildingsaas"><i className="fa-brands fa-facebook-f"></i></a>
-                                                <a href="https://www.linkedin.com/company/link-building-saas"><i className="fa-brands fa-linkedin-in"></i></a>
-                                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                                <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
+                                                <a href="#"><i className="fa-brands fa-linkedin-in"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +104,7 @@ const FooterOne = () => {
                                 {/* <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12"> */}
                                 <div className="col-12">
                                     <div className="copyright text-center">
-                                        <p>© 2024 Link Building Saas Rights Reserved.</p>
+                                        <p>© 2024 Link Building SaaS All Rights Reserved.</p>
                                     </div>
                                 </div>
                                 {/* <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
