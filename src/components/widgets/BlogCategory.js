@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { fetchDataFromApi } from '../../../utils/api';
 
 const BlogCategory = () => {
-    const [data,setData] = useState()
-	console.log("categories",data)
-	useEffect(()=>{
-		fetchDataFromApi('/api/categories').then((response)=> setData(response.data)).catch(error => console.error('Error fetching data:', error));
-	},[])
     return (
         <>
             <div className="sidebar__single widget_categories">
                 <h3 className="sidebar__title mb-30">Categories</h3>
                 <ul>
-                    {data?.map((item,index)=>{
-                        return(
-                        <li><Link href="/blog">{item?.attributes?.categoryTitle}</Link></li>
-                        )
-                    })} 
+                    <li><Link href="/">Keyword Research</Link></li>
+                    <li><Link href="/">On-Page SEO</Link></li>
+                    <li><Link href="/">Content Marketing</Link></li>
+                    <li><Link href="/">Mobile SEO</Link></li>
+                    <li><Link href="/">Search Optimization</Link></li>
+                    <li><Link href="/">E-commerce SEO</Link></li>
                 </ul>
             </div>
         </>

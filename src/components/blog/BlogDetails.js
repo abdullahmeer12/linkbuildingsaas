@@ -4,11 +4,8 @@ import BlogSearch from '../widgets/BlogSearch';
 import BlogCategory from '../widgets/BlogCategory';
 import BlogLatestPost from '../widgets/BlogLatestPost';
 import BlogTags from '../widgets/BlogTags';
-import dayjs from 'dayjs';
-import ReactMarkdown from 'react-markdown';
 
-
-const BlogDetails = ({data}) => {
+const BlogDetails = () => {
     return (
         <>
             <div className="blog-details pt-120 pb-60">
@@ -17,19 +14,36 @@ const BlogDetails = ({data}) => {
                         <div className="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12">
                             <div className="blog-details__left">
                                 <div className="blog-details__img mb-25">
-                                    <img src={data?.attributes?.postThumbnail?.data.attributes?.url ? process.env.NEXT_PUBLIC_DEV_URL + data?.attributes?.postThumbnail?.data.attributes?.url : "/assets/img/blog/blog-details.jpg" } alt="Image" />
+                                    <img src="/assets/img/blog/blog-details.jpg" alt="Blog Details" />
                                 </div>
                                 <div className="blog-details__content">
                                     <div className="blog-details__meta mb-20">
                                         <ul>
-                                            <li><i className="fa-light fa-calendar-lines"></i><span>{dayjs(data?.attributes?.publishedAt).format('MMMM D, YYYY')}</span></li>
-                                            <li><i className="fa-light fa-user-large"></i>By Admin</li>
-                                            {/* <li><i className="fa-sharp fa-light fa-comment-dots"></i><Link href="/">3 Comment</Link></li> */}
+                                            <li><i className="fa-light fa-calendar-lines"></i><span>March 24,2023</span></li>
+                                            <li><i className="fa-light fa-user-large"></i><Link href="/">By Admin</Link></li>
+                                            <li><i className="fa-sharp fa-light fa-comment-dots"></i><Link href="/">3 Comment</Link></li>
                                         </ul>
                                     </div>
-                                    <h1 className="postbox__title">{data?.attributes?.blogTitle ? data?.attributes?.blogTitle : "Blog title"}</h1>
-                                    <ReactMarkdown>{data.attributes.BlogContent}</ReactMarkdown>
-                                    {/* <div className="blog-details__bottom">
+                                    <h2 className="postbox__title">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</h2>
+                                    <p className="mb-50">Phasellus eu tristique sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Done laoreet augue sit amet quam vulputate, a blandit arcu eleifend. Nam convallis velit libero nec cursus nunc vehicula non. Ut posuere
+                                        nibh at dapibus posuere.</p>
+                                    <blockquote>
+                                        There are many variations of passages of Lorem Ipsum available, but majority have suffered alteration in some form, by injected humour, randomised words which don't look even slightly believable.
+                                        <cite>Dylan Meringue</cite>
+                                    </blockquote>
+                                    <div className="row pt-25 pb-10">
+                                        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <img src="/assets/img/blog/blog-details-1.jpg" className="mb-30" alt="blog details img" />
+                                        </div>
+                                        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <img src="/assets/img/blog/blog-details-2.jpg" className="mb-30" alt="blog details img" />
+                                        </div>
+                                    </div>
+                                    <h3 className="postbox__title">Insights Outrank Your Competitors.</h3>
+                                    <p>Nunc maximus tellus ac interdum porttitor. Vestibulum maximus, ante porttitor rutrum velit odio consequat nunc, at condimentum nisi est a lectus. Quisque non euismod enim. Etiam vel orci molestie, lacinia nulla porta, ultricies
+                                        arcu.
+                                    </p>
+                                    <div className="blog-details__bottom">
                                         <div className="blog-details__tags">
                                             <span>Tags :</span>
                                             <Link href="/">Seo agency</Link>
@@ -41,10 +55,10 @@ const BlogDetails = ({data}) => {
                                             <a href="#"><i className="fab fa-pinterest-p"></i></a>
                                             <a href="#"><i className="fab fa-instagram"></i></a>
                                         </div>
-                                    </div> */}
+                                    </div>
                                 </div>
                                 {/* post navigation start */}
-                                {/* <div className="post-navigation mt-15">
+                                <div className="post-navigation mt-15">
                                     <div className="row">
                                         <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                             <div className="post-navigation__prev">
@@ -75,10 +89,10 @@ const BlogDetails = ({data}) => {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
                                 {/* post navigation end */}
                                 {/* latest comments start */}
-                                {/* <div className="latest-comments mt-50 mb-70">
+                                <div className="latest-comments mt-50 mb-70">
                                     <h3 className="comment-one__title">2 Comments</h3>
                                     <ul>
                                         <li>
@@ -114,10 +128,10 @@ const BlogDetails = ({data}) => {
                                             </ul>
                                         </li>
                                     </ul>
-                                </div> */}
+                                </div>
                                 {/* latest comments end */}
                                 {/* comment form start */}
-                                {/* <div id="comments" className="blog-post-comment comment-one pb-60">
+                                <div id="comments" className="blog-post-comment comment-one pb-60">
                                     <div className="comment-respond">
                                         <h3 className="comment-reply-title">
                                             Leave a Reply
@@ -161,17 +175,18 @@ const BlogDetails = ({data}) => {
                                                 </div>
                                             </div>
                                         </form>
-                                    </div> 
-                                </div> */}
+                                    </div>
+                                    {/* comment form end */}
+                                </div>
                             </div>
                         </div>
                         <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
                             {/* sidebar start */}
                             <div className="sidebar">
-                                {/* <BlogSearch /> */}
+                                <BlogSearch />
                                 <BlogLatestPost />
                                 <BlogCategory />
-                                {/* <BlogTags /> */}
+                                <BlogTags />
                             </div>
                             {/* sidebar end */}
                         </div>
