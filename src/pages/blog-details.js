@@ -3,6 +3,7 @@ import HeaderOne from "../common/header/HeaderOne";
 import Breadcrumb from "../common/breadcrumb/Breadcrumb";
 import BlogDetails from "../components/blog/BlogDetails";
 import FooterThree from "../common/footer/FooterThree";
+import FooterOne from "@/common/footer/FooterOne";
 
 export default function BlogDetailsPage() {
 	return (
@@ -14,7 +15,7 @@ export default function BlogDetailsPage() {
                 currentPage="Blog Details" 
             />
 			<BlogDetails />
-			<FooterThree />
+			<FooterOne />
 		</>
 	);
 }

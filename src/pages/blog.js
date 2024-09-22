@@ -3,6 +3,7 @@ import HeaderOne from "../common/header/HeaderOne";
 import BreadcrumbTwo from "../common/breadcrumb/BreadcrumbTwo";
 import BlogGrid from "../components/blog/BlogGrid";
 import FooterThree from "../common/footer/FooterThree";
+import FooterOne from "@/common/footer/FooterOne";
 
 export default function BlogPage() {
 	return (
@@ -14,7 +15,7 @@ export default function BlogPage() {
                 currentPage="Stay Updated with the Latest News and Best Strategies" 
             />
 			<BlogGrid />
-			<FooterThree />
+			<FooterOne />
 		</>
 	);
 }
