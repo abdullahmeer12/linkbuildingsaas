@@ -1,43 +1,49 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+import dayjs from "dayjs";
 
-const BlogLatestPost = () => {
-    return (
-        <>
-            <div className="sidebar__single widget_latest_post">
-                <h3 className="sidebar__title mb-30">Recent Posts</h3>
-                <div className="sidebar__post-box">
-                    <div className="sidebar__post-single">
-                        <div className="sidebar-post__img">
-                            <Link href="/blog-details"><img src="/assets/img/blog/1.jpg" alt="img" /></Link>
-                        </div>
-                        <div className="sidebar__post-content-box">
-                            <h3><Link href="/blog-details">SEO Checklist Steps Optimize Your Business.</Link></h3>
-                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                        </div>
-                    </div>
-                    <div className="sidebar__post-single">
-                        <div className="sidebar-post__img">
-                            <Link href="/blog-details"><img src="/assets/img/blog/2.jpg" alt="img" /></Link>
-                        </div>
-                        <div className="sidebar__post-content-box">
-                            <h3><Link href="/blog-details">The Role of SEO in Brand Building and Online.</Link></h3>
-                            <span><i className="fa-light fa-calendar-lines"></i>April 24,2023</span>
-                        </div>
-                    </div>
-                    <div className="sidebar__post-single">
-                        <div className="sidebar-post__img">
-                            <Link href="/blog-details"><img src="/assets/img/blog/3.jpg" alt="img" /></Link>
-                        </div>
-                        <div className="sidebar__post-content-box">
-                            <h3><Link href="/blog-details">SEO Content Marketing Content Searchable.</Link></h3>
-                            <span><i className="fa-light fa-calendar-lines"></i>June 28,2023</span>
-                        </div>
-                    </div>
+const BlogLatestPost = ({ allpost }) => {
+  console.log("allpost", allpost);
+  return (
+    <>
+      <div className="sidebar__single widget_latest_post">
+        <h3 className="sidebar__title mb-30">Recent Posts</h3>
+        <div className="sidebar__post-box">
+          {[...allpost]
+            ?.sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort posts by date (newest first)
+            ?.slice(0, 3) // Take only the first 5 posts
+            ?.map((value, index) => {
+              return (
+                <div className="sidebar__post-single" key={index}>
+                  <div className="sidebar-post__img">
+                    <Link href={`/blog-detail/${value.slug}`}>
+                      <img
+                        src={
+                          value.featuredImage?.node?.sourceUrl ??
+                          "/assets/img/blog/1.jpg"
+                        }
+                        alt={value.title}
+                      />
+                    </Link>
+                  </div>
+                  <div className="sidebar__post-content-box">
+                    <h3>
+                      <Link href={`/blog-detail/${value.slug}`}>
+                        {value.title ?? "Post Title"}
+                      </Link>
+                    </h3>
+                    <span>
+                      <i className="fa-light fa-calendar-lines"></i>
+                      {dayjs(value?.date).format("MMMM-DD-YYYY")}
+                    </span>
+                  </div>
                 </div>
-            </div>
-        </>
-    )
-}
+              );
+            })}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default BlogLatestPost;

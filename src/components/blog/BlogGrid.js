@@ -1,875 +1,135 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+import dayjs from "dayjs";
 
-const BlogGrid = () => {
-    return (
-        <>
-            <div className="blog-one pb-140">
-                <div className="tabs-one">
-                    <div className="blog-category-tabs pb-100">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-xxl-12 text-center">
-                                    <ul className="nav nav-pills mb-100" id="pills-tab" role="tablist">
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link active" id="pills-search-tab" data-bs-toggle="pill" data-bs-target="#pills-search" type="button" role="tab" aria-controls="pills-search" aria-selected="true">
-                                                <img src="/assets/img/icon/globe.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/globe-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Search Engine</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-analytics-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab" aria-controls="pills-analytics" aria-selected="false">
-                                                <img src="/assets/img/icon/list.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/list-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Analytics</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-social-tab" data-bs-toggle="pill" data-bs-target="#pills-social" type="button" role="tab" aria-controls="pills-social" aria-selected="false">
-                                                <img src="/assets/img/icon/like-tag.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/like-tag-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Social Media</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-marketing-tab" data-bs-toggle="pill" data-bs-target="#pills-marketing" type="button" role="tab" aria-controls="pills-marketing" aria-selected="false">
-                                                <img src="/assets/img/icon/pen.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/pen-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Content Marketing</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-management-tab" data-bs-toggle="pill" data-bs-target="#pills-management" type="button" role="tab" aria-controls="pills-management" aria-selected="false">
-                                                <img src="/assets/img/icon/trend-up.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/trend-up-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Management</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-optimization-tab" data-bs-toggle="pill" data-bs-target="#pills-optimization" type="button" role="tab" aria-controls="pills-optimization" aria-selected="false">
-                                                <img src="/assets/img/icon/keyboard-open.svg" className="no-active" alt="img" />
-                                                <img src="/assets/img/icon/keyboard-open-white.svg" className="active-tab-icon" alt="img" />
-                                                <span>Optimization</span>
-                                            </button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-digital-tab" data-bs-toggle="pill" data-bs-target="#pills-digital" type="button" role="tab" aria-controls="pills-digital" aria-selected="false">
-                                                <img src="/assets/img/icon/status-up.svg" className="no-active" alt="" />
-                                                <img src="/assets/img/icon/status-up-white.svg" className="active-tab-icon" alt="" />
-                                                <span>Digital Marketing</span>
-                                            </button>
-                                        </li>
-                                    </ul>
+export default function BlogGrid({ posts, categories }) {
+   
+  return (
+    <>
+      <div className="blog-one pb-140">
+        <div className="tabs-one">
+          <div className="blog-category-tabs pb-100">
+            <div className="container">
+              <div className="row">
+                <div className="col-xxl-12 text-center">
+                  <ul
+                    className="nav nav-pills mb-100 justify-content-center"
+                    id="pills-tab"
+                    role="tablist"
+                  >
+                    {categories?.map((value, index) => {
+                      return (
+                        <>
+                        {value.enableOrDisable.enableOrDisable && 
+                        <li className="nav-item" role="presentation">
+                          <button
+                            className={`nav-link ${
+                              index === 0 ? "active" : ""
+                            }`}
+                            id={`id-tabbtn-${index}`}
+                            data-bs-toggle="pill"
+                            data-bs-target={`#id-target-${index}`}
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-search"
+                            aria-selected="true"
+                          >
+                            <img
+                              src={
+                                value?.categoryImage?.categoryImage != null
+                                  ? value?.categoryImage?.categoryImage?.node
+                                      .mediaItemUrl
+                                  : "assets/img/icon/globe.svg"
+                              }
+                              alt="category image"
+                            />
+                            <span>{value.name}</span>
+                          </button>
+                        </li>}</>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xxl-12">
+              <div className="tab-content" id="pills-tabContent">
+                {categories?.map((value, index) => {
+                  return (
+                    <div
+                      className={`tab-pane fadeInUp ${
+                        index === 0 ? "show active" : ""
+                      }`}
+                      id={`id-target-${index}`}
+                      role="tabpanel"
+                      aria-labelledby="pills-search-tab"
+                      tabindex="0"
+                    >
+                      <div className="container">
+                        <div className="row">
+                          {value?.posts?.nodes?.map((blog, index) => {
+                            return (
+                              <div
+                                className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                                key={index}
+                              >
+                                <div className="blog-grid__single mb-30">
+                                  <div className="blog-grid__single-img">
+                                    <Link href={`/blog-detail/${blog.slug}`}>
+                                      <img
+                                        src={
+                                          blog?.featuredImage != null
+                                            ? blog?.featuredImage?.node
+                                                ?.mediaItemUrl
+                                            : "assets/img/placeholder.jpg"
+                                        }
+                                        alt="BlogImg"
+                                      />
+                                    </Link>
+                                  </div>
+                                  <div className="blog-grid__single-content">
+                                    <div className="postbox__meta gap-2 d-flex">
+                                      <span>
+                                        <i className="fa-light fa-calendar-lines"></i>
+                                        {dayjs(`${blog.date}`).format(
+                                          "MMMM-DD-YYYY"
+                                        )}
+                                      </span>
+                                      <span>
+                                        <i class="fa-regular fa-user"></i>
+                                        {blog.author.node.name}
+                                      </span>
+                                    </div>
+                                    <h2>
+                                      <Link href={`/blog-detail/${blog.slug}`}>
+                                        {blog.title}
+                                      </Link>
+                                    </h2>
+                                    <div className="btn-box postbox__read-more">
+                                      <Link
+                                        href={`/blog-detail/${blog.slug}`}
+                                        className="tp-btn postbox__more-btn"
+                                      >
+                                        Read More{" "}
+                                        <i className="fa-solid fa-arrow-right"></i>
+                                      </Link>
+                                    </div>
+                                  </div>
                                 </div>
-                            </div>
+                              </div>
+                            );
+                          })}
                         </div>
+                      </div>
                     </div>
-                    <div className="row">
-                        <div className="col-xxl-12">
-                            <div className="tab-content" id="pills-tabContent">
-                                <div className="tab-pane show active fadeInUp" id="pills-search" role="tabpanel" aria-labelledby="pills-search-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-analytics" role="tabpanel" aria-labelledby="pills-analytics-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-marketing" role="tabpanel" aria-labelledby="pills-marketing-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-management" role="tabpanel" aria-labelledby="pills-management-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-optimization" role="tabpanel" aria-labelledby="pills-optimization-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="pills-digital" role="tabpanel" aria-labelledby="pills-digital-tab" tabindex="0">
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/1.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 24,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Trends to Watch Staying Ahead in the Ever-Changing Digital Landscape.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/2.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>June 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Art of Crafting Your Digital Footprint Maximum Visibility.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/3.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>August 18,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Success Stories Real-Life Examples of Triumphing in the Online World.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/4.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>April 16,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">Local SEO Checklist Steps Optimize Your Business For Searches.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/5.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>July 23,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">The Role of SEO in Brand Building and Online Business Reputation.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                                <div className="blog-grid__single mb-30">
-                                                    <div className="blog-grid__single-img">
-                                                        <Link href="/blog-details">
-                                                            <img src="/assets/img/blog/6.jpg" alt="Blog Img" />
-                                                        </Link>
-                                                    </div>
-                                                    <div className="blog-grid__single-content">
-                                                        <div className="postbox__meta">
-                                                            <span><i className="fa-light fa-calendar-lines"></i>March 29,2023</span>
-                                                        </div>
-                                                        <h2><Link href="/blog-details">SEO Content Marketing and Creating Valuable Content Searchable.</Link></h2>
-                                                        <div className="btn-box postbox__read-more">
-                                                            <Link href="/blog-details" className="tp-btn postbox__more-btn">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          {/* <div className="row">
                         <div className="col-xxl-12">
                             <div className="basic-pagination text-center mt-40">
                                 <nav>
@@ -883,11 +143,9 @@ const BlogGrid = () => {
                                 </nav>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+                    </div> */}
+        </div>
+      </div>
+    </>
+  );
 }
-
-export default BlogGrid;
