@@ -3,7 +3,6 @@ import Link from "next/link";
 import dayjs from "dayjs";
 
 const BlogLatestPost = ({ allpost }) => {
-  console.log("allpost", allpost);
   return (
     <>
       <div className="sidebar__single widget_latest_post">

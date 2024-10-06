@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 const BlogCategory = ({categories}) => {
-    console.log("categories",categories)
     return (
         <>
             <div className="sidebar__single widget_categories">
