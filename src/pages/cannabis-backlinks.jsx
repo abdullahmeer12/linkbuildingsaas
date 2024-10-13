@@ -594,7 +594,7 @@ const CannabisBacklinks = () => {
                       How to get ranked on Google for the CBD website?
                       </Accordion.Header>
                       <Accordion.Body>
-                      At Outreach Monks, we work in compliance with Google’s rules and regulations to bring more positive results for you. We assure you 100% unique content and contextual link placements based on your DA preference on Cannabis and CBD websites. And that will help your website rank higher for Google search results. 
+                      At Link Building Saas, we work in compliance with Google’s rules and regulations to bring more positive results for you. We assure you 100% unique content and contextual link placements based on your DA preference on Cannabis and CBD websites. And that will help your website rank higher for Google search results. 
                       </Accordion.Body>
                     </Accordion.Item>
 
@@ -625,19 +625,19 @@ const CannabisBacklinks = () => {
 
                     <Accordion.Item eventKey="4">
                       <Accordion.Header>
-                      How do Outreach Monks acquire backlinks?
+                      How do Link Building Saas acquire backlinks?
                       </Accordion.Header>
                       <Accordion.Body>
-                      At Outreach Monks, we have a team of highly professional and experienced members who research for sites with high domain authority to contact. We get in touch with the owners of every website to request backlinks and create content that adheres to both Google’s standards and their expectations. Increasing your company’s online reputation and sales is the ultimate goal of every blog article we create.
+                      At Link Building Saas, we have a team of highly professional and experienced members who research for sites with high domain authority to contact. We get in touch with the owners of every website to request backlinks and create content that adheres to both Google’s standards and their expectations. Increasing your company’s online reputation and sales is the ultimate goal of every blog article we create.
                       </Accordion.Body>
                     </Accordion.Item>
 
                     <Accordion.Item eventKey="5">
                       <Accordion.Header>
-                      How Outreach Monks is different from its competitors?
+                      How Link Building Saas is different from its competitors?
                       </Accordion.Header>
                       <Accordion.Body>
-                      We proudly announce that no other company can match the top-quality backlinks that Outreach Monks can provide you in a short time span. We offer you a reasonable pricing structure with an effective and efficient set of features. You will have brilliant unique content, excellent backlinks, quick response time, and a team of experts to foster your online needs in this competitive market.
+                      We proudly announce that no other company can match the top-quality backlinks that Link Building Saas can provide you in a short time span. We offer you a reasonable pricing structure with an effective and efficient set of features. You will have brilliant unique content, excellent backlinks, quick response time, and a team of experts to foster your online needs in this competitive market.
                       </Accordion.Body>
                     </Accordion.Item>
 

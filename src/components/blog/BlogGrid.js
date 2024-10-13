@@ -77,7 +77,7 @@ export default function BlogGrid({ posts, categories }) {
                               >
                                 <div className="blog-grid__single mb-30">
                                   <div className="blog-grid__single-img">
-                                    <Link href={`/blog-detail/${blog.slug}`}>
+                                    <Link href={`${blog.slug}`}>
                                       <img
                                         src={
                                           blog?.featuredImage != null
@@ -103,13 +103,13 @@ export default function BlogGrid({ posts, categories }) {
                                       </span>
                                     </div>
                                     <h2>
-                                      <Link href={`/blog-detail/${blog.slug}`}>
+                                      <Link href={`/${blog.slug}`}>
                                         {blog.title}
                                       </Link>
                                     </h2>
                                     <div className="btn-box postbox__read-more">
                                       <Link
-                                        href={`/blog-detail/${blog.slug}`}
+                                        href={`/${blog.slug}`}
                                         className="tp-btn postbox__more-btn"
                                       >
                                         Read More{" "}

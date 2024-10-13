@@ -639,10 +639,10 @@ const BloggerOutreach = () => {
 
                     <Accordion.Item eventKey="2">
                       <Accordion.Header>
-                      Which Additional Backlink Services Does Outreach Monks Offer?
+                      Which Additional Backlink Services Does Link Building Saas Offer?
                       </Accordion.Header>
                       <Accordion.Body>
-                      Outreach Monks provides an array of backlink services, such as white label link building, guest posting,  link insertions, SaaS backlinks, broken link building, cannabis backlinks, and managed link building services.
+                      Link Building Saas provides an array of backlink services, such as white label link building, guest posting,  link insertions, SaaS backlinks, broken link building, cannabis backlinks, and managed link building services.
                       </Accordion.Body>
                     </Accordion.Item>
 
@@ -651,7 +651,7 @@ const BloggerOutreach = () => {
                       What Does DA Mean?
                       </Accordion.Header>
                       <Accordion.Body>
-                      Domain Authority or DA is a key metric calculated by Moz.com for the websites on the internet. We use this metric for the assessment of the quality of blogs where we plan to publish the content. The blogger outreach or guest posting service at Outreach Monks guarantees content posts on to be published blogs with DA range from 10+ to 50+. For posting content on a blog which has DA 10 or higher, a DA 10+ post is required. Likewise, a DA 30+ post can be posted on a site which has DA of 30 or higher, and so forth.
+                      Domain Authority or DA is a key metric calculated by Moz.com for the websites on the internet. We use this metric for the assessment of the quality of blogs where we plan to publish the content. The blogger outreach or guest posting service at Link Building Saas guarantees content posts on to be published blogs with DA range from 10+ to 50+. For posting content on a blog which has DA 10 or higher, a DA 10+ post is required. Likewise, a DA 30+ post can be posted on a site which has DA of 30 or higher, and so forth.
                       </Accordion.Body>
                     </Accordion.Item>
 

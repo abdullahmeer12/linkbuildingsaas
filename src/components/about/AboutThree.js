@@ -40,11 +40,11 @@ const AboutThree = () => {
                             <div className="about-one__right wow fadeInUp" data-wow-delay=".5s">
                                 <div className="about-one__right-content">
                                     {/* <span>About Us</span> */}
-                                    <h2 className="section-title__one-title">About Us</h2>
+                                    <h2 className="section-title__one-title">Who We Are</h2>
                                     <p>Founded in 2020, LBS is a specialized link-building agency that serves over 2,000 businesses and agencies globally. Our goal is to help our clients improve their search engine rankings and increase traffic through strategic, sustainable solutions.</p>
                                     <p>As a full-service partner, we offer complete transparency and accountability to our agency clients. Rather than attempting to be a jack-of-all-trades, we focus exclusively on link building, allowing us to excel in this area. Our team of marketing strategists and experienced writers work together to create high-quality, searchable content and links that drive results.</p>
                                     <p>We are proud to be a one-stop-shop for all things link building and are committed to delivering exceptional customer service and timely campaign execution. Our reputation for delivering top-notch work and excellent support has made us a trusted name in the industry. Our team of experts, consisting of strategic marketers and experienced writers, specializes in creating valuable content and links that drive results</p>
-                                    <p>With a team of more than 45 dedicated professionals, Outreach Monks is known for delivering top-quality work, meeting tight campaign deadlines, and providing exceptional customer support.</p>
+                                    <p>With a team of more than 45 dedicated professionals, Link Building Saas is known for delivering top-quality work, meeting tight campaign deadlines, and providing exceptional customer support.</p>
                                     <Link href={"tel:23123123"} className=' mt-20 cta-one__btn wow fadeInUp'>Get In Touch</Link>
                                 </div>
                                 {/* <div className="about-one__counter">

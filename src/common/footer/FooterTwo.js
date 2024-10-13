@@ -40,7 +40,7 @@ const FooterTwo = () => {
                             <div className="row">
                                 <div className="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                     <div className="copyright">
-                                        <p>© 2024 SEOQ All Rights Reserved.</p>
+                                        <p>© 2024 Link Building SaaS All Rights Reserved.</p>
                                     </div>
                                 </div>
                                 <div className="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12">

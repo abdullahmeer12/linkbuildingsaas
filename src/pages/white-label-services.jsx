@@ -471,10 +471,10 @@ const WhiteLabelServices = () => {
 
                     <Accordion.Item eventKey="4">
                       <Accordion.Header>
-                      Which White Label Backlink Services Does Outreach Monks Provide?
+                      Which White Label Backlink Services Does Link Building Saas Provide?
                       </Accordion.Header>
                       <Accordion.Body>
-                      Outreach Monks offers a diverse range of backlink services, including guest posting service, blogger outreach service, link insertions, SaaS backlinks, and cannabis backlinks etc.
+                      Link Building Saas offers a diverse range of backlink services, including guest posting service, blogger outreach service, link insertions, SaaS backlinks, and cannabis backlinks etc.
                       </Accordion.Body>
                     </Accordion.Item>
 
@@ -490,10 +490,10 @@ const WhiteLabelServices = () => {
 
                     <Accordion.Item eventKey="6">
                       <Accordion.Header>
-                      How Does Outreach Monks Ensure Effective Link Building for Better Rankings?
+                      How Does Link Building Saas Ensure Effective Link Building for Better Rankings?
                       </Accordion.Header>
                       <Accordion.Body>
-                      Link Building has the potential to increase your rankings significantly if done correctly. When it comes to building high-quality links, Google prioritizes three factors, namely the authority of the linking page, the authority of the linking site, and content relevance. At Outreach Monks, we focus on all these factors to ensure that every single backlink we build delivers real and sustainable value to our clients and their clients.
+                      Link Building has the potential to increase your rankings significantly if done correctly. When it comes to building high-quality links, Google prioritizes three factors, namely the authority of the linking page, the authority of the linking site, and content relevance. At Link Building Saas, we focus on all these factors to ensure that every single backlink we build delivers real and sustainable value to our clients and their clients.
                       </Accordion.Body>
                     </Accordion.Item>
 

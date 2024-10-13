@@ -9,7 +9,7 @@ const menu_data = [
       id: 2,
       has_dropdown: false,
       title: "About Us",
-      link: "/about",
+      link: "/who-we-are",
     },
     {
       id: 3,

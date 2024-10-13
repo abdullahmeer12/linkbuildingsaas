@@ -12,7 +12,7 @@ export default function BlogPage({posts,categories}) {
  
 	return (
 		<>
-			<SEO pageTitle={"Blog Page"} />
+			<SEO pageTitle={"Blog Page"}  />
 			<HeaderOne />
 			<BreadcrumbTwo 
                 heading="The SEO Ranking Blog"

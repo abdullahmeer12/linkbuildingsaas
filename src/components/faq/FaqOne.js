@@ -97,7 +97,7 @@ const FaqOne = () => {
 
                     <Accordion.Item eventKey="4">
                       <Accordion.Header>
-                        How do Outreach Monks differ from its competitor SEO service providers?
+                        How do Link Building Saas differ from its competitor SEO service providers?
                       </Accordion.Header>
                       <Accordion.Body>
                       Over the years in the link-building realm, we have worked on all kinds of projects, collaborating with businesses with smaller local link-building budgets of just a few hundred dollars a month to enterprise-grade budgets up to thousands of dollars, and everything in between as well.
@@ -108,10 +108,10 @@ const FaqOne = () => {
 
                     <Accordion.Item eventKey="5">
                       <Accordion.Header>
-                       Will Outreach Monks give me the reporting & analysis? 
+                       Will Link Building Saas give me the reporting & analysis? 
                       </Accordion.Header>
                       <Accordion.Body>
-                      We at Outreach Monks, in addition to the conventional link-building services, also provide feedback, measurement, reporting, and analysis. We carefully consider the sources, the target web pages, and the strategy to reinforce the reputation.
+                      We at Link Building Saas, in addition to the conventional link-building services, also provide feedback, measurement, reporting, and analysis. We carefully consider the sources, the target web pages, and the strategy to reinforce the reputation.
                       <br/>
                       We thoroughly monitor the growth of your website in search engine rankings as well as the referral traffic it gets. If you want to know more about how our expert link-building service can boost the traffic to your site, or if you want to take your existing link-building campaign to the next level, contact us right now. We will share a free analysis report and a link-building strategy for your website.
                       </Accordion.Body>

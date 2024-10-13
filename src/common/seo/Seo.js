@@ -1,13 +1,14 @@
 import Head from "next/head";
 
-const SEO = ({ pageTitle }) => (
+const SEO = ({ pageTitle , description , keywords}) => (
     <>
         <Head>
             <title>
-                {pageTitle && `${pageTitle} || SEOQ - SEO & Digital Marketing Agency React Next JS Template `}
+                {pageTitle && `${pageTitle} || Link Building SaaS - SEO & Digital Marketing Agency  `}
             </title>
             <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-            <meta name="description" content="SEOQ - SEO & Digital Marketing Agency React Next JS Template" />
+            <meta name="keywords" content={keywords ?? "Digital Marketing Agency"}/>
+            <meta name="description" content={description ?? "Link Building SaaS - SEO & Digital Marketing Agency"} />
             <meta name="robots" content="noindex, follow" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         </Head>

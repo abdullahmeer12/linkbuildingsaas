@@ -1,11 +1,11 @@
-import SEO from "../../common/seo/Seo";
-import HeaderOne from "../../common/header/HeaderOne";
-import Breadcrumb from "../../common/breadcrumb/Breadcrumb";
-import BlogDetails from "../../components/blog/BlogDetails";
-import FooterThree from "../../common/footer/FooterThree";
+import SEO from "../common/seo/Seo";
+import HeaderOne from "../common/header/HeaderOne";
+import Breadcrumb from "../common/breadcrumb/Breadcrumb";
+import BlogDetails from "../components/blog/BlogDetails";
+import FooterThree from "../common/footer/FooterThree";
 import FooterOne from "@/common/footer/FooterOne";
-import client from '../../../lib/apollo-client';
-import { GET_SINGLE_POST ,GET_POST_SLUGS ,GET_CATEGORIES ,GET_POSTS} from '../../../lib/queries';
+import client from '../../lib/apollo-client';
+import { GET_SINGLE_POST ,GET_POST_SLUGS ,GET_CATEGORIES ,GET_POSTS} from '../../lib/queries';
 import { gql } from '@apollo/client';
 
 export default function BlogDetailsPage({ post ,categories ,posts}) {  

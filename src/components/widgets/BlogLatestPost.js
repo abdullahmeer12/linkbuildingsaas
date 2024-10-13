@@ -15,11 +15,11 @@ const BlogLatestPost = ({ allpost }) => {
               return (
                 <div className="sidebar__post-single" key={index}>
                   <div className="sidebar-post__img">
-                    <Link href={`/blog-detail/${value.slug}`}>
+                    <Link href={`/${value.slug}`}>
                       <img
                         src={
                           value.featuredImage?.node?.sourceUrl ??
-                          "/assets/img/blog/1.jpg"
+                          "/assets/img/placeholder.jpg"
                         }
                         alt={value.title}
                       />
@@ -27,7 +27,7 @@ const BlogLatestPost = ({ allpost }) => {
                   </div>
                   <div className="sidebar__post-content-box">
                     <h3>
-                      <Link href={`/blog-detail/${value.slug}`}>
+                      <Link href={`/${value.slug}`}>
                         {value.title ?? "Post Title"}
                       </Link>
                     </h3>

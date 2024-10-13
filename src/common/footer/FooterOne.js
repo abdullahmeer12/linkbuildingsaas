@@ -61,7 +61,7 @@ const FooterOne = () => {
                                         <h3 className="footer-widget__title">Quick Links</h3>
                                         <ul>
                                             <li><Link href="/">Home</Link></li>
-                                            <li><Link href="/about">About Us</Link></li>
+                                            <li><Link href="/who-we-are">About Us</Link></li>
                                             <li><Link href="/blog">Blogs</Link></li>
                                             <li><Link href="/contact">Contact Us</Link></li>
 

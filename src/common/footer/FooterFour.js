@@ -69,7 +69,7 @@ const FooterFour = () => {
                             <div className="row">
                                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                     <div className="copyright">
-                                        <p>© 2024 SEOQ All Rights Reserved.</p>
+                                        <p>© 2024 Link Building SaaS All Rights Reserved.</p>
                                     </div>
                                 </div>
                                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
